@@ -130,11 +130,17 @@ html {
 
 #videos {
     position: relative;
-    height: 600px;
-    width: 800px;
+    height: 240px;
+    width: 360px;
     margin: auto;
+/*
+    border: 3px solid white;
+    border-radius: 3px;
+*/
 }
 
+
+/*
 #publisher {
     position: absolute;
     width: 360px;
@@ -154,6 +160,7 @@ html {
     height: 100%;
     z-index: 10;
 }
+*/
 
 body {
     background: rgba(255, 208, 181, 0.95);
