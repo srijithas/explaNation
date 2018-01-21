@@ -18,7 +18,7 @@ html {
 }
 #history {
      width: 100%;
-     height: calc(100% - 120px);
+     height: calc(100% - 30px);
      overflow: auto;
 }
 input#msgTxt {
