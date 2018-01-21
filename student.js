@@ -17,8 +17,8 @@ function handleError(error) {
     // Subscribe to a newly created stream
     session.on('streamCreated', function(event) {
         session.subscribe(event.stream, 'subscriber', {
-        width: '100%',
-        height: '100%'
+        width: '360px',
+        height: '240px'
         }, handleError);
     });
 

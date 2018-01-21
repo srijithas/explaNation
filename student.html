@@ -35,8 +35,8 @@
             document.getElementById("question").addEventListener("click", raiseHand);
         function raiseHand() {
             var publisher = OT.initPublisher('publisher', {
-            width: '100%',
-            height: '100%'
+            width: '360px',
+            height: '240px'
         }, handleError);
             console.log('session', session); //remove
             session.publish(publisher, function(error) {

@@ -30,7 +30,10 @@ function initializeSession() {
             if (event.data === 'raiseHand') {
                 var r = confirm("Accept student's question?");
                 if (r == true) {
-                    session.subscribe(students[event.from.connectionId], 'subscriber');
+                    session.subscribe(students[event.from.connectionId], 'subscriber', {
+                        width: '360px',
+                        height: '240px'
+                    });
                 }
             }
         }
@@ -38,8 +41,8 @@ function initializeSession() {
 
     // Create a publisher
     var publisher = OT.initPublisher('publisher', {
-        width: '100%',
-        height: '100%'
+        width: '360px',
+        height: '240px'
     }, handleError);
 
     // Connect to the session

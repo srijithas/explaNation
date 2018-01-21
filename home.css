@@ -130,13 +130,7 @@ html {
 
 #videos {
     position: relative;
-    height: 240px;
-    width: 360px;
     margin: auto;
-/*
-    border: 3px solid white;
-    border-radius: 3px;
-*/
 }
 
 
