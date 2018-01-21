@@ -1,42 +1,46 @@
-// replace these values with those generated in your TokBox Account
-var apiKey = "46043582";
-var sessionId = "2_MX40NjA0MzU4Mn5-MTUxNjQ3OTM1OTgzOH4zKzFGQVFTa08xN0dKODU3OGFZNlIrWGl-fg";
-var token = "T1==cGFydG5lcl9pZD00NjA0MzU4MiZzaWc9MDAzYjVjYmI1MDVjZmNkZjZlODc0NGM4YjQ5ODZmY2JjMTI3N2VmYTpzZXNzaW9uX2lkPTJfTVg0ME5qQTBNelU0TW41LU1UVXhOalEzT1RNMU9UZ3pPSDR6S3pGR1FWRlRhMDh4TjBkS09EVTNPR0ZaTmxJcldHbC1mZyZjcmVhdGVfdGltZT0xNTE2NDc5MzgwJm5vbmNlPTAuMzU5NjA0OTk4NTAxMTQyNyZyb2xlPW1vZGVyYXRvciZleHBpcmVfdGltZT0xNTE3MDg0MTgxJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
-// (optional) add server code here
-initializeSession();
+var index = require('./routes/index');
+var cors = require('cors');
+var app = express();
 
-// Handling all of our errors here by alerting them
-function handleError(error) {
-    if (error) {
-        alert(error.message);
-    }
-}
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-function initializeSession() {
-    var session = OT.initSession(apiKey, sessionId);
+app.use(cors());
 
-    // Subscribe to a newly created stream
-    session.on('streamCreated', function(event) {
-        session.subscribe(event.stream, 'subscriber', {
-        width: '100%',
-        height: '100%'
-        }, handleError);
-    });
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-    // Create a publisher
-    var publisher = OT.initPublisher('publisher', {
-        width: '100%',
-        height: '100%'
-    }, handleError);
+app.use('/', index);
 
-    // Connect to the session
-    session.connect(token, function (error) {
-        // If the connection is successful, publish to the session
-        if (error) {
-            handleError(error);
-        } else {
-            session.publish(publisher, handleError);
-        }
-    });
-}
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;

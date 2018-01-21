@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ExplaNation</title>
+  <meta name="description" content="An interactive getting started guide for Brackets.">
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body>
+
+  <h1>ExplaNation</h1>
+  <h2>Learn something live from anyone, anywhere! </h2>
+
+  <div id="table">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/createname">Create Classroom</a>
+      </li>
+      <li>
+        <a href="/aboutus">About Us</a>
+      </li>
+    </ul>
+  </div>
+
+  <p>
+    Welcome to ExplaNation! Here you can live stream videos from instructors in order to learn from the comfort of your very
+    own home! You can watch a live broadcast and ask questions in real time with our chat box or join a class with the instructor
+    to learn interactively.
+  </p>
+
+  <div id="toc">
+    <p class="toc_title">Contents</p>
+    <hr>
+    <ul class="toc_list">
+
+      <% for(var i=0; i < liveList.length; i++) { %>
+        <li>
+          <a href=<%=liveList[i].link %> >
+            <%= liveList[i].name %>
+          </a>
+        </li>
+        <% } %>
+
+    </ul>
+  </div>
+
+
+</body>
+
+</html>
