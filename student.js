@@ -29,3 +29,27 @@ function handleError(error) {
             handleError(error);
         }
     });
+
+function enterTex() {
+           var msgTxt = document.getElementById('msgTxt');
+             session.signal({
+                type: 'msg',
+                 data: msgTxt.value
+             }, function signalCallback(error) {
+             if (error) {
+                 console.error('Error sending signal:', error.name, error.message);
+             } else {
+                msgTxt.value = '';
+
+             }
+            });
+}
+
+  session.on('signal:msg', function signalCallback(event) {
+    var msgHistory = document.getElementById('history');
+    var msg = document.createElement('p');
+    msg.textContent = event.data;
+    msg.className = event.from.connectionId === session.connection.connectionId ? 'mine' : 'theirs';
+    msgHistory.appendChild(msg);
+    msg.scrollIntoView();
+  }); 

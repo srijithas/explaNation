@@ -30,6 +30,16 @@
             <div id="subscriber"></div>
         </div>
 
+        <div id="textchat">
+         <p id="history"></p>
+              <input type="text" id="msgTxt" placeholder="Input your text here" id="msgTxt"></input>
+        </div>
+        
+        <button id= "enter">submit</button>
+        <script type="text/javascript">
+           document.getElementById("enter").addEventListener("click", enterTex);
+        </script>    
+            
         <button id= "question">Raise your hand</button>
         <script type="text/javascript">
             document.getElementById("question").addEventListener("click", raiseHand);

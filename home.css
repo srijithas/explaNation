@@ -6,6 +6,38 @@ html {
     background-size: cover;
 }
 
+#textchat {
+    position: relative;
+    width: 53%;
+    float: right;
+    right: 0;
+    height: 200px;
+    background-color: #f2f2f2;
+    top:0px;
+    
+}
+#history {
+     width: 100%;
+     height: calc(100% - 120px);
+     overflow: auto;
+}
+input#msgTxt {
+            height: 30px;
+            position: absolute;
+            bottom:-50;
+            width: 50%;
+}
+#history .mine {
+    color: #D85E37;
+    text-align: right;
+    margin-right: 10px;
+}
+#history .theirs {
+    color: #555;
+    text-align: left;
+    margin-left: 10px;
+}
+
 #table {
 	width: 100%;
 	float: left;
@@ -72,6 +104,10 @@ html {
     color:#fff;
     text-decoration: none; 
 }
+#enter{
+    float:right;
+    margin: 40px 40px 100px -50px;
+}
 #question {
    background: #D85E37;
    background-image: -webkit-linear-gradient(top, #D85E37, #C75733);
@@ -92,6 +128,8 @@ html {
    text-decoration: none;
    display: inline-block;
    cursor: pointer; 
+   float: left;
+   margin: 10px 400px 10px 120px;
 }
 #question:hover {
    background: #F2F2F2;
@@ -130,6 +168,8 @@ html {
 
 #videos {
     position: relative;
+    float: left;
+    left: 0;
     margin: auto;
 }
 
@@ -158,6 +198,7 @@ html {
 
 body {
     background: rgba(255, 208, 181, 0.95);
+    background-size: auto;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -166,7 +207,7 @@ body {
     line-height: 1.5;
     margin: 0 auto;
     max-width: 800px;
-    max-height: auto;
+    min-height: 1000px;
     padding: 2em 2em 4em;
 }
 
