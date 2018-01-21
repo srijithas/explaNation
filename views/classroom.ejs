@@ -9,8 +9,15 @@
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script type='text/javascript'>
+        var apiKey = "46043582";
+        var className = '<%= name %>';
+        var sessionId = '<%= sessionId %>';
+        var token = '<%= token %>';
+    </script>
     <script type="text/javascript" src="/js/teacher.js"> </script>
 </head>
+
 
 <body>
 
@@ -37,6 +44,13 @@
     </div>
 
     <button id="resolved">Question Resolved</button>
+    <script type="text/javascript">
+        document.getElementById("resolved").addEventListener("click", close);
+        function close() {
+            session.signal({ data: "close" }, handleError);
+        }
+    </script>
+
 </body>
 
 </html>
