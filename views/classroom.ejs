@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ExplaNation</title>
+    <meta name="description" content="An interactive getting started guide for Brackets.">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script type='text/javascript'>
+        var apiKey = "46043582";
+        var className = '<%= name %>';
+        var sessionId = '<%= sessionId %>';
+        var token = '<%= token %>';
+    </script>
+    <script type="text/javascript" src="/js/teacher.js"> </script>
+</head>
+
+
+<body>
+
+    <h1>ExplaNation</h1>
+
+    <div id="table">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="#">Create Classroom</a>
+            </li>
+            <li>
+                <a href="/aboutus">About Us</a>
+            </li>
+        </ul>
+    </div>
+    <p> TokBox Live Stream Here</p>
+    <!--try the video stuff-->
+    <div id="videos">
+        <div id="publisher"></div>
+        <div id="subscriber"></div>
+    </div>
+
+    <button id="resolved">Question Resolved</button>
+    <script type="text/javascript">
+        document.getElementById("resolved").addEventListener("click", close);
+        function close() {
+            session.signal({ data: "close" }, handleError);
+        }
+    </script>
+
+</body>
+
+</html>
